@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Europa Entre Sombras - Turoperador Especializado</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ffffff;
+            font-weight: 400;
+        }
+
+        /* Header Hero */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
+                        url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=2000&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.4em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: white;
+            color: #1a1a1a;
+            padding: 18px 45px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-cta:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        nav a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover {
+            color: #000;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 100px 40px;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 120px;
+        }
+
+        section h2 {
+            color: #1a1a1a;
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        section h3 {
+            color: #2c3e50;
+            font-size: 2em;
+            margin-top: 60px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        section h4 {
+            color: #444;
+            font-size: 1.4em;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .section-intro {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* Image Grid */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .image-card {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .image-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .image-card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            padding: 40px 20px 20px;
+            color: white;
+        }
+
+        .image-card-overlay h3 {
+            color: white;
+            font-size: 1.5em;
+            margin: 0 0 10px 0;
+        }
+
+        .image-card-overlay p {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .stat-card {
+            background: #f8f9fa;
+            padding: 50px 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid #e5e5e5;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .stat-card .number {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+            line-height: 1;
+        }
+
+        .stat-card .label {
+            font-size: 1em;
+            color: #666;
+            font-weight: 400;
+        }
+
+        /* Content Box */
+        .content-box {
+            background: #f8f9fa;
+            padding: 50px;
+            border-radius: 8px;
+            margin: 40px 0;
+            border-left: 4px solid #1a1a1a;
+        }
+
+        .content-box h3 {
+            margin-top: 0;
+        }
+
+        /* Two Column Layout */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin: 60px 0;
+            align-items: start;
+        }
+
+        .two-column img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        /* Price Table */
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 60px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .price-table th,
+        .price-table td {
+            padding: 20px 30px;
+            text-align: left;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .price-table th {
+            background-color: #1a1a1a;
+            color: white;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .price-table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .price-table .total-row {
+            background-color: #1a1a1a;
+            color: white;
+            font-weight: 600;
+            font-size: 1.3em;
+        }
+
+        .price-table .total-row:hover {
+            background-color: #1a1a1a;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin: 30px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 15px 0;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        /* Package Section */
+        .package-hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=2000&q=80') center/cover;
+            padding: 100px 40px;
+            border-radius: 8px;
+            color: white;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .package-hero h2 {
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 20px;
+        }
+
+        .package-hero p {
+            font-size: 1.3em;
+            font-weight: 300;
+        }
+
+        .package-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border: 1px solid #e5e5e5;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .feature-item h4 {
+            margin: 20px 0 10px 0;
+            font-size: 1.2em;
+        }
+
+        .feature-item p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: #1a1a1a;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            color: white;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: #1a1a1a;
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1.1em;
+            margin: 40px 0;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            background: #2c3e50;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 60px 40px;
+            margin-top: 100px;
+        }
+
+        footer p {
+            margin: 10px 0;
+            opacity: 0.8;
+        }
+
+        .footer-divider {
+            width: 60px;
+            height: 3px;
+            background: white;
+            margin: 30px auto;
+        }
+
+        /* Authors Section */
+        .authors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .author-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e5e5e5;
+        }
+
+        .author-card h4 {
+            margin: 0;
+            font-size: 1.1em;
+            color: #1a1a1a;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3.5em;
+            }
+            
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: 80vh;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.1em;
+            }
+
+            section h2 {
+                font-size: 2em;
+            }
+
+            section {
+                padding: 0;
+                margin-bottom: 80px;
+            }
+
+            .container {
+                padding: 60px 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .stats-grid,
+            .package-features {
+                grid-template-columns: 1fr;
+            }
+
+            .price-table th,
+            .price-table td {
+                padding: 15px;
+                font-size: 0.9em;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Europa Entre Sombras</h1>
+            <p>Turoperador Especializado en Turismo de Memoria Histórica</p>
+            <a href="#paquete" class="hero-cta">Descubre el Viaje</a>
+        </div>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="#justificacion">Especialización</a></li>
+            <li><a href="#mercado">Mercado</a></li>
+            <li><a href="#organigrama">Organización</a></li>
+            <li><a href="#intermediacion">Proveedores</a></li>
+            <li><a href="#paquete">Paquete</a></li>
+            <li><a href="#autores">Autores</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Justificación -->
+        <section id="justificacion">
+            <h2>Especialización en Turismo de Memoria Histórica</h2>
+            <p class="section-intro">Nos especializamos en turismo oscuro, una tipología que busca comprender hechos históricos trágicos, reflexionar sobre las consecuencias y honrar su memoria de forma ética y profesional.</p>
+            
+            <div class="image-grid">
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1461360370896-922624d12aa1?w=800&q=80" alt="Memoria Histórica">
+                    <div class="image-card-overlay">
+                        <h3>Memoria Histórica</h3>
+                        <p>Reflexión y aprendizaje</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80" alt="Educación">
+                    <div class="image-card-overlay">
+                        <h3>Educación</h3>
+                        <p>Comprensión profunda del pasado</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=80" alt="Experiencias">
+                    <div class="image-card-overlay">
+                        <h3>Experiencias Únicas</h3>
+                        <p>Viajes transformadores</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Nicho de Mercado</h3>
+            <p>Nuestro público objetivo incluye turistas con interés por la historia y las catástrofes (guerras, catástrofes nucleares, etc.), curiosidad por lo paranormal, y alta conciencia moral y cultural. Valoran la opinión profesional y buscan experiencias auténticas y respetuosas.</p>
+            
+            <div class="content-box">
+                <h3>Buyer Persona: Sandra López</h3>
+                <div class="two-column">
+                    <div>
+                        <p><strong>Edad:</strong> 28 años</p>
+                        <p><strong>Profesión:</strong> Profesora de Historia</p>
+                        <p><strong>Intereses:</strong> Documentales históricos, podcasts de true crime, visitas a museos y sitios patrimoniales</p>
+                        <p><strong>Motivaciones:</strong> Aprendizaje profundo sobre eventos históricos, reflexión sobre el pasado, experiencias educativas únicas</p>
+                        <p><strong>Comportamiento:</strong> Investiga a fondo antes de viajar, valora guías especializados, busca autenticidad y respeto en las visitas</p>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800&q=80" alt="Buyer Persona">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Estudio de Mercado -->
+        <section id="mercado">
+            <h2>Estudio de Mercado</h2>
+            <p class="section-intro">El turismo oscuro experimenta un crecimiento exponencial impulsado por películas, series, documentales y redes sociales que generan curiosidad por lugares históricos trágicos.</p>
+            
+            <h3>Contexto del Turismo Oscuro</h3>
+            <p>El turismo oscuro data de antes de la edad media con visitas romanas a coliseos. El término comenzó a prevalecer en Francia en los años 70 y se reconoció oficialmente en 2003.</p>
+            
+            <div class="content-box">
+                <p><strong>Definición según Lennon y Foley (1996):</strong></p>
+                <p>Prácticas turísticas desarrolladas alrededor de lugares donde se han producido sucesos relacionados con la muerte, el sufrimiento, la tragedia o lo macabro.</p>
+            </div>
+
+            <h3>Factores de Crecimiento</h3>
+            <ul>
+                <li><strong>Películas y series:</strong> Motivan a visitar lugares de tragedia</li>
+                <li><strong>Divulgación de noticias:</strong> Generan empatía y motivación personal</li>
+                <li><strong>Cultura del true crime:</strong> Podcasts y documentales despiertan curiosidad</li>
+                <li><strong>Redes sociales:</strong> YouTube, TikTok e Instagram difunden contenido masivamente</li>
+            </ul>
+
+            <h3>Cifras del Mercado</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="number">$32.76B</div>
+                    <div class="label">Valor del mercado 2025</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">$39.77B</div>
+                    <div class="label">Proyección para 2032</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">2.8%</div>
+                    <div class="label">Crecimiento anual</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">82%</div>
+                    <div class="label">Han practicado turismo oscuro</div>
+                </div>
+            </div>
+
+            <h3>Estadísticas de Viajeros</h3>
+            <p>Encuesta a más de 900 viajeros (Passport Photo Online):</p>
+            <ul>
+                <li>El 82% han realizado turismo oscuro alguna vez</li>
+                <li>Del 18% restante, el 63% está interesado en practicarlo</li>
+                <li>Solo el 9% tiene actitud negativa hacia este turismo</li>
+            </ul>
+
+            <h4>Interés por Generaciones</h4>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="number">91%</div>
+                    <div class="label">Generación Z (1997-2012)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">83%</div>
+                    <div class="label">Millennials (1981-1996)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">80%</div>
+                    <div class="label">Generación X (1965-1980)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">71%</div>
+                    <div class="label">Baby Boomers (55+)</div>
+                </div>
+            </div>
+
+            <h3>Motivaciones Principales</h3>
+            <ol>
+                <li>Interés histórico y educativo</li>
+                <li>Conmemoración y homenaje a víctimas</li>
+                <li>Curiosidad y descubrimiento de experiencias únicas</li>
+                <li>Autodescubrimiento y reflexión personal</li>
+            </ol>
+
+            <h3>Tipologías según Seaton (1999)</h3>
+            <ol>
+                <li>Viajar para presenciar la muerte (ejecuciones, sacrificios)</li>
+                <li>Viajar a lugares después de producirse la muerte (Auschwitz)</li>
+                <li>Viajar a lugares de internamiento y monumentos (cementerios)</li>
+                <li>Viajar a recreaciones o representaciones</li>
+                <li>Viajes a sitios sintéticos con exhibiciones y restos (museos)</li>
+            </ol>
+        </section>
+
+        <!-- Organigrama -->
+        <section id="organigrama">
+            <h2>Organización de la Agencia</h2>
+            <p class="section-intro">Estructura organizativa diseñada para garantizar la calidad y profesionalidad en cada aspecto del servicio turístico especializado.</p>
+            
+            <div class="two-column">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80" alt="Equipo profesional">
+                </div>
+                <div>
+                    <h3>Dirección General</h3>
+                    <p>Toma de decisiones estratégicas y cumplimiento de objetivos corporativos.</p>
+                </div>
+            </div>
+
+            <div class="content-box">
+                <h3>Área Técnica</h3>
+                <ul>
+                    <li><strong>Departamento de Diseño:</strong> Creación y organización de productos turísticos especializados</li>
+                    <li><strong>Departamento de Contratación:</strong> Búsqueda de proveedores especializados en turismo histórico</li>
+                    <li><strong>Departamento de Tramitación:</strong> Gestión de documentación legal y trámites burocráticos</li>
+                    <li><strong>Departamento de Desarrollo y Control:</strong> Resolución de imprevistos y seguimiento de calidad</li>
+                </ul>
+
+                <h3>Área Comercial</h3>
+                <ul>
+                    <li><strong>Departamento de Promoción y Marketing:</strong> Investigación de mercado y estrategias competitivas</li>
+                    <li><strong>Departamento de Control de Calidad y Ventas:</strong> Encuestas de satisfacción y comercialización</li>
+                </ul>
+
+                <h3>Área Administrativa</h3>
+                <ul>
+                    <li><strong>Departamento de Contabilidad:</strong> Gestión financiera y presupuestos</li>
+                    <li><strong>Departamento de Recursos Humanos:</strong> Selección de personal cualificado en historia</li>
+                    <li><strong>Departamento de Sistemas:</strong> Mantenimiento de plataformas digitales y herramientas tecnológicas</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Intermediación -->
+        <section id="intermediacion">
+            <h2>Relaciones de Intermediación</h2>
+            <p class="section-intro">Red de proveedores especializados que garantizan la excelencia en cada componente del viaje.</p>
+            
+            <h3>Proveedores de Transporte</h3>
+            
+            <div class="two-column">
+                <div>
+                    <h4>Transporte Aéreo</h4>
+                    <ul>
+                        <li><strong>España - Varsovia:</strong> LOT Polish Airlines (release 30 días)</li>
+                        <li><strong>Cracovia - París:</strong> EasyJet (release 30 días)</li>
+                        <li><strong>Londres - España:</strong> Iberia (release 30 días)</li>
+                    </ul>
+
+                    <h4>Transporte Terrestre</h4>
+                    <ul>
+                        <li><strong>Varsovia - Chernóbil:</strong> Tours 2 Chernobyl (release 15 días, permisos especiales)</li>
+                        <li><strong>Varsovia - Cracovia:</strong> PKP Intercity (release 20 días)</li>
+                        <li><strong>París - Londres:</strong> Eurostar (release 21 días)</li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&q=80" alt="Transporte">
+                </div>
+            </div>
+
+            <h3>Proveedores de Alojamiento</h3>
+            <p>Contrato de allotment con hoteles de 3 estrellas seleccionados:</p>
+            <ul>
+                <li>2 noches en Varsovia</li>
+                <li>2 noches en Cracovia</li>
+                <li>1 noche en Caen</li>
+                <li>1 noche en Londres</li>
+            </ul>
+            <p>Incluye desayuno, early check-in y flexibilidad para gestión de reservas.</p>
+
+            <h3>Proveedores de Visitas Guiadas</h3>
+            
+            <div class="image-grid">
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1542401886-65d6c61db217?w=800&q=80" alt="Chernóbil">
+                    <div class="image-card-overlay">
+                        <h3>Chernóbil y Prípiat</h3>
+                        <p>Operador autorizado por el gobierno ucraniano</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1594623930572-300a3011d9ae?w=800&q=80" alt="Auschwitz">
+                    <div class="image-card-overlay">
+                        <h3>Auschwitz-Birkenau</h3>
+                        <p>Museo Estatal con guías oficiales</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=800&q=80" alt="Normandía">
+                    <div class="image-card-overlay">
+                        <h3>Normandía</h3>
+                        <p>Memorial de Caen y Playas del Desembarco</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-box">
+                <h4>Tipos de Guías</h4>
+                <div class="two-column">
+                    <div>
+                        <h4>Guía de Evento</h4>
+                        <p>Especialista local autorizado (Chernóbil, Auschwitz, Normandía) con certificación oficial para cada sitio específico.</p>
+                    </div>
+                    <div>
+                        <h4>Guía Acompañante</h4>
+                        <p>Personal de la agencia que viaja con el grupo durante todo el itinerario, gestionando logística y apoyo continuo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Canales de Comercialización -->
+        <section id="comercializacion">
+            <h2>Canales de Comercialización</h2>
+            <p class="section-intro">Estrategia multicanal enfocada en llegar a jóvenes de la Generación Z y Millennials con intereses culturales y motivaciones vinculadas al aprendizaje histórico.</p>
+            
+            <div class="package-features">
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <h4>Redes Sociales</h4>
+                    <p>Instagram & TikTok con contenido educativo visual</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎥</div>
+                    <h4>Marketing de Contenidos</h4>
+                    <p>Videos, testimonios y experiencias de viajeros</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">👥</div>
+                    <h4>Influencers</h4>
+                    <p>Colaboración con creadores especializados</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✉️</div>
+                    <h4>Email Marketing</h4>
+                    <p>Comunicación directa con estudiantes y viajeros</p>
+                </div>
+            </div>
+
+            <h3>Estrategia de Distribución</h3>
+            <ul>
+                <li><strong>Venta Directa:</strong> A través de redes sociales y web propia</li>
+                <li><strong>Venta Indirecta:</strong> Agencias minoristas y plataformas especializadas</li>
+                <li><strong>Colaboraciones:</strong> Museos, universidades y centros de memoria</li>
+            </ul>
+
+            <div class="content-box">
+                <p><strong>Ventaja Competitiva:</strong> Paquetes turísticos personalizados adaptados a intereses específicos de cada grupo, con énfasis en educación, respeto y autenticidad.</p>
+            </div>
+        </section>
+
+        <!-- Paquete Turístico -->
+        <section id="paquete">
+            <div class="package-hero">
+                <h2>Europa Entre Sombras</h2>
+                <p>7 Días / 6 Noches | Ucrania, Polonia, Francia y Reino Unido</p>
+            </div>
+            
+            <h3>Descripción del Viaje</h3>
+            <p>Recorrido de siete días por cuatro destinos europeos emblemáticos que marcaron la historia del siglo XX. Un viaje transformador que combina reflexión, historia y memoria.</p>
+            
+            <div class="package-features">
+                <div class="feature-item">
+                    <img src="https://images.unsplash.com/photo-1542401886-65d6c61db217?w=400&q=80" alt="Chernóbil" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
+                    <h4>Chernóbil</h4>
+                    <p>Símbolo de la catástrofe nuclear</p>
+                </div>
+                <div class="feature-item">
+                    <img src="https://images.unsplash.com/photo-1594623930572-300a3011d9ae?w=400&q=80" alt="Auschwitz" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
+                    <h4>Auschwitz</h4>
+                    <p>Memoria del Holocausto</p>
+                </div>
+                <div class="feature-item">
+                    <img src="https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=400&q=80" alt="Normandía" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
+                    <h4>Normandía</h4>
+                    <p>Desembarco de la II Guerra Mundial</p>
+                </div>
+                <div class="feature-item">
+                    <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=400&q=80" alt="Londres" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
+                    <h4>Whitechapel</h4>
+                    <p>Crímenes de Jack el Destripador</p>
+                </div>
+            </div>
+
+            <h3>Componentes del Paquete</h3>
+            <ul>
+                <li><strong>Transporte completo:</strong> Vuelos internacionales, trenes y traslados organizados</li>
+                <li><strong>Alojamiento:</strong> 6 noches en hoteles 3 estrellas con desayuno incluido</li>
+                <li><strong>Visitas guiadas:</strong> Profesionales acreditados en todos los destinos</li>
+                <li><strong>Seguro de viaje:</strong> Cobertura completa y asistencia 24 horas</li>
+                <li><strong>Guía acompañante:</strong> Especializado durante todo el viaje</li>
+                <li><strong>Material digital:</strong> "Europa Oscura: guía del viajero responsable"</li>
+            </ul>
+
+            <h3>Desglose de Precios</h3>
+            <table class="price-table">
+                <thead>
+                    <tr>
+                        <th>Concepto</th>
+                        <th>Importe</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Vuelos internacionales</td>
+                        <td>330 €</td>
+                    </tr>
+                    <tr>
+                        <td>Alojamiento (6 noches)</td>
+                        <td>330 €</td>
+                    </tr>
+                    <tr>
+                        <td>Transporte interno (tren/ferry)</td>
+                        <td>180 €</td>
+                    </tr>
+                    <tr>
+                        <td>Visitas guiadas</td>
+                        <td>120 €</td>
+                    </tr>
+                    <tr>
+                        <td>Seguro de viaje</td>
+                        <td>20 €</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Subtotal costes directos</strong></td>
+                        <td><strong>980 €</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Gastos de agencia</td>
+                        <td>75 €</td>
+                    </tr>
+                    <tr>
+                        <td>Marketing y comercialización</td>
+                        <td>187 €</td>
+                    </tr>
+                    <tr>
+                        <td>Margen de beneficio (25%)</td>
+                        <td>274 €</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td><strong>PRECIO FINAL POR PERSONA</strong></td>
+                        <td><strong>1.516 €</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Estrategia de Promoción</h3>
+            <div class="content-box">
+                <h4>Campaña "Europa Entre Sombras"</h4>
+                <ul>
+                    <li>Vídeos breves educativos en TikTok e Instagram</li>
+                    <li>Colaboración con micro-influencers especializados en viajes culturales</li>
+                    <li>Charlas online con guías del tour</li>
+                    <li>Descuento por reserva anticipada: <strong>"Early Shadow"</strong></li>
+                    <li>Artículos en blogs de historia y memoria europea</li>
+                </ul>
+            </div>
+
+            <div style="text-align: center; margin: 60px 0;">
+                <a href="#" class="cta-button">Reservar Ahora</a>
+            </div>
+        </section>
+
+        <!-- Autores -->
+        <section id="autores">
+            <h2>Equipo de Investigación</h2>
+            <p class="section-intro">Trabajo académico desarrollado por un equipo multidisciplinar especializado en turismo y gestión de agencias de viajes.</p>
+            
+            <div class="authors-grid">
+                <div class="author-card">
+                    <h4>Laura Moreno González</h4>
+                </div>
+                <div class="author-card">
+                    <h4>Rosangela Kobrosly</h4>
+                </div>
+                <div class="author-card">
+                    <h4>Valeria Fuertes</h4>
+                </div>
+                <div class="author-card">
+                    <h4>Amanda Hernandez</h4>
+                </div>
+                <div class="author-card">
+                    <h4>Sandra Landskron</h4>
+                </div>
+            </div>
+
+            <div class="content-box" style="margin-top: 60px;">
+                <h3>Sobre este Proyecto</h3>
+                <p>Este trabajo final representa un estudio exhaustivo sobre turoperadores especializados en turismo oscuro, analizando el mercado actual, las estructuras organizativas necesarias, las relaciones con proveedores y el diseño de productos turísticos especializados.</p>
+                <p>El proyecto abarca desde la justificación de la especialización hasta la creación de un paquete turístico completo, incluyendo estrategias de comercialización y análisis de precios.</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <h3 style="font-size: 1.5em; margin-bottom: 10px;">Europa Entre Sombras</h3>
+        <p>Turoperador Especializado en Turismo de Memoria Histórica</p>
+        <div class="footer-divider"></div>
+        <p>Trabajo académico sobre turoperadores y agencias de viajes especializadas</p>
+        <p style="margin-top: 30px; opacity: 0.7;">© 2025 - Todos los derechos reservados</p>
+    </footer>
+
+    <script>
+        // Smooth scroll para navegación
+        document.querySelectorAll('nav a, .hero-cta').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animación al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Aplicar animaciones a secciones
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(section);
+        });
+
+        // Animación para stats cards
+        document.querySelectorAll('.stat-card, .feature-item, .image-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
